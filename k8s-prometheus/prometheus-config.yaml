@@ -109,8 +109,10 @@ data:
     # scrape all ports on all pods with the prometheus.io/scrape annotation
     #
     - job_name: 'kubernetes-pods'
+
       kubernetes_sd_configs:
       - role: pod
+
       relabel_configs:
       - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
         action: keep
@@ -138,8 +140,10 @@ data:
     # prometheus.io/scrape-metrics-ports-only annotation
     #
     - job_name: 'kubernetes-pods-metrics-ports-only'
+
       kubernetes_sd_configs:
       - role: pod
+
       relabel_configs:
       - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape_metrics_ports_only]
         action: keep
