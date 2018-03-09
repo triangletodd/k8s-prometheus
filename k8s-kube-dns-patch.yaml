@@ -1,0 +1,5 @@
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape-metrics-ports-only: "true"
