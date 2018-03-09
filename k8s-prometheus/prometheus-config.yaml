@@ -134,7 +134,7 @@ data:
         target_label: kubernetes_pod_name
 
     #
-    # scape ports named metrics on all pods with the
+    # scrape ports named metrics on all pods with the
     # prometheus.io/scrape-metrics-ports-only annotation
     #
     - job_name: 'kubernetes-pods-metrics-ports-only'
