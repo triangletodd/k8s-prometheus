@@ -1,13 +1,17 @@
 apiVersion: v1
 data:
   prometheus.yml: |
+    global:
+      scrape_interval: 20s
+      scrape_timeout: 10s
+      evaluation_interval: 20s
+
     scrape_configs:
 
     #
     # scrape the k8s api
     #
     - job_name: 'kubernetes-apiservers'
-
       kubernetes_sd_configs:
       - role: endpoints
 
@@ -27,7 +31,6 @@ data:
     # scrape proxy endpoint for all nodes
     #
     - job_name: 'kubernetes-nodes'
-
       scheme: https
 
       tls_config:
@@ -75,7 +78,6 @@ data:
     # scrape endpoints with prometheus.io/scrape annotation
     #
     - job_name: 'kubernetes-service-endpoints'
-
       kubernetes_sd_configs:
       - role: endpoints
 
@@ -109,7 +111,6 @@ data:
     # scrape all ports on all pods with the prometheus.io/scrape annotation
     #
     - job_name: 'kubernetes-pods'
-
       kubernetes_sd_configs:
       - role: pod
 
@@ -140,7 +141,6 @@ data:
     # prometheus.io/scrape-metrics-ports-only annotation
     #
     - job_name: 'kubernetes-pods-metrics-ports-only'
-
       kubernetes_sd_configs:
       - role: pod
 
